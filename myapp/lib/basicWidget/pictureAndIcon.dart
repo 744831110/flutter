@@ -18,7 +18,8 @@ class PictureAndIconWidgetState extends State<PictureAndIconWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
+            Image.asset("lib/images/icon2.jpg", width: 100),
+            Image.network("https://cdn.jsdelivr.net/gh/flutterchina/flutter-in-action@1.0/docs/imgs/image-20180829163427556.png", width: 100),
           ],
         ),
       ),
