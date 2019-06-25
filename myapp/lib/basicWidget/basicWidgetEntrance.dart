@@ -5,6 +5,8 @@ import 'widgetIntroduce.dart';
 import 'textAndFontStyle.dart';
 import 'button.dart';
 import 'pictureAndIcon.dart';
+import 'switchAndCheckBox.dart';
+import 'inputBoxAndForm.dart';
 
 class BasicHomePageWidget extends StatefulWidget {
   BasicHomePageWidget({Key key, this.title}) : super(key: key);
@@ -52,6 +54,16 @@ class BasictHomePageWidgetState extends State<BasicHomePageWidget> {
               child: Text("图片和Icon"),
               textColor: Colors.blue,
               onPressed: () => this.pushToMaterialPageRoute(new PictureAndIconWidget(title: "图片和Icon",)),
+            ),
+            FlatButton(
+              child: Text("单选开关和复选框"),
+              textColor: Colors.blue,
+              onPressed: () => this.pushToMaterialPageRoute(new SwitchAndCheckBoxWidget(title: "单选开关和复选框",)),
+            ),
+            FlatButton(
+              child: Text("输入框和表单"),
+              textColor: Colors.blue,
+              onPressed: () => this.pushToMaterialPageRoute(new InputBoxAndFormWidget(title: "输入框和表单")),
             )
           ],
         ),
