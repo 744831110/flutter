@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'basicWidget/basicWidgetEntrance.dart';
 import 'layoutWidget/layoutWidgetEntrance.dart';
+import 'containerWidget/containerWidgetEntrance.dart';
 
 void main() => runApp(MyApp());
 
@@ -57,6 +58,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("布局式Widgets"),
               textColor: Colors.blue,
               onPressed: () => this.pushToMaterialPageRoute(new LayoutWidgetEntranceWidget(title: "布局式Widgets",)),
+            ),
+            FlatButton(
+              child: Text("容器类Widgets"),
+              textColor: Colors.blue,
+              onPressed: () => this.pushToMaterialPageRoute(new ContainerWidgetEntranceWidget(title: "容器类Widgets",)),
             )
           ],
         ),
