@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'basicWidget/basicWidgetEntrance.dart';
 import 'layoutWidget/layoutWidgetEntrance.dart';
 import 'containerWidget/containerWidgetEntrance.dart';
+import 'scrollWidget/scrollWidgetEntrance.dart';
 
 void main() => runApp(MyApp());
 
@@ -63,6 +64,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("容器类Widgets"),
               textColor: Colors.blue,
               onPressed: () => this.pushToMaterialPageRoute(new ContainerWidgetEntranceWidget(title: "容器类Widgets",)),
+            ),
+            FlatButton(
+              child: Text("可滚动Widgets"),
+              textColor: Colors.blue,
+              onPressed: () => this.pushToMaterialPageRoute(new ScrollWidgetEntranceWidget(title: "可滚动Widgets",)),
             )
           ],
         ),
