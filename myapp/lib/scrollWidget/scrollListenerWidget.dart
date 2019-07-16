@@ -19,6 +19,7 @@ class ScrollListenerWidgetState extends State<ScrollListenerWidget> {
   @override
   void initState() {
     super.initState();
+    
     scrollController.addListener((){
       print(scrollController.offset);
       if(scrollController.offset < 1000 && showToTopBtn) {
