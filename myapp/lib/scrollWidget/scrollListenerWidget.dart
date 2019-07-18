@@ -46,13 +46,14 @@ class ScrollListenerWidgetState extends State<ScrollListenerWidget> {
       appBar: AppBar(title: Text(widget.title),),
       body: Scrollbar(
         child: NotificationListener<ScrollNotification>(
-          onNotification: (notification){
+          onNotification: (ScrollNotification notification){
             double progress = notification.metrics.pixels / notification.metrics.maxScrollExtent;
             setState(() {
               int num = (progress * 100).toInt();
               if(num>100) num = 100;
               progressString = "$num%";
             });
+            return false;
           },
           child: Stack(
             alignment: Alignment.center,

@@ -4,6 +4,8 @@ import 'layoutWidget/layoutWidgetEntrance.dart';
 import 'containerWidget/containerWidgetEntrance.dart';
 import 'scrollWidget/scrollWidgetEntrance.dart';
 import 'eventAndNotification/eventAndNotificationEntrance.dart';
+import 'animation/animationEntrance.dart';
+import 'customWidget/customWidgetEntrance.dart';
 
 void main() => runApp(MyApp());
 
@@ -75,6 +77,16 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("事件处理与通知"),
               textColor: Colors.blue,
               onPressed: () => this.pushToMaterialPageRoute(new EventAndNotificationEntranceWidget(title: "事件处理与通知",)),
+            ),
+            FlatButton(
+              child: Text("动画结构"),
+              textColor: Colors.blue,
+              onPressed: () => this.pushToMaterialPageRoute(new AnimationEntranceWidget(title: "动画结构",)),
+            ),
+            FlatButton(
+              child: Text("自定义Widget"),
+              textColor: Colors.blue,
+              onPressed: () => this.pushToMaterialPageRoute(new CustomWidgetEntranceWidget(title: "自定义Widget",)),
             )
           ],
         ),
