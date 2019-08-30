@@ -64,18 +64,6 @@ class GestureRecognizerWidgetState extends State<GestureRecognizerWidget> {
                       left: left,
                       child: GestureDetector(
                         child: CircleAvatar(child: Text("A", style: TextStyle(color: Colors.white),),),
-                        // onPanDown: (DragDownDetails e){
-                        //   print("用户按下的位置为${e.globalPosition}");
-                        // },
-                        // onPanUpdate: (DragUpdateDetails e){
-                        //   setState(() {
-                        //     left += e.delta.dx;
-                        //     top += e.delta.dy;
-                        //   });
-                        // },
-                        // onPanEnd: (DragEndDetails e){
-                        //   print("手指滑动的速度${e.velocity}");
-                        // },
                         onHorizontalDragUpdate: (DragUpdateDetails e){
                           setState(() {
                             final result = left + e.delta.dx;

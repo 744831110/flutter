@@ -60,7 +60,7 @@ class HeroAnimationRouteB extends StatelessWidget {
         child: Hero(
           tag: "avatar",
           child: GestureDetector(
-            child: Image.asset("lib/images/pic2.jpg", width: 50.0,),
+            child: Image.asset("lib/images/pic2.jpg", width: 150.0,),
             onTap: (){
               Navigator.pop(context);
             },

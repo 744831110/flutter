@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:myapp/other/testWidget.dart';
 import 'basicWidget/basicWidgetEntrance.dart';
 import 'layoutWidget/layoutWidgetEntrance.dart';
 import 'containerWidget/containerWidgetEntrance.dart';
@@ -6,6 +9,7 @@ import 'scrollWidget/scrollWidgetEntrance.dart';
 import 'eventAndNotification/eventAndNotificationEntrance.dart';
 import 'animation/animationEntrance.dart';
 import 'customWidget/customWidgetEntrance.dart';
+import 'other/otherEntranceWidget.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,6 +40,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  void initState() {
+    super.initState();
+    test();
+  }
 
   void pushToMaterialPageRoute(Widget route){
     Navigator.push(context, new MaterialPageRoute(builder: (context){
@@ -87,10 +97,43 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("自定义Widget"),
               textColor: Colors.blue,
               onPressed: () => this.pushToMaterialPageRoute(new CustomWidgetEntranceWidget(title: "自定义Widget",)),
+            ),
+            FlatButton(
+              child: Text("其他"),
+              textColor: Colors.blue,
+              onPressed: () => this.pushToMaterialPageRoute(new OtherEntranceWidget(title: "其他",)),
+            ),
+            FlatButton(
+              child: Text("test"),
+              textColor: Colors.blue,
+              onPressed: () => this.pushToMaterialPageRoute(new TestWidget()),
+            ),
+            FlatButton(
+              child: Text("cookie"),
+              textColor: Colors.blue,
+              onPressed: (){
+                String str = "OUTFOX_SEARCH_USER_ID=-2048661168@10.200.160.12; Created=587289147; Path=/login/acc; Domain=k12internal.youdao.com; Expires=04 Aug 2049 15:52:26 GMT";
+                Cookie cookie = Cookie.fromSetCookieValue(str);
+                print('${cookie.name}  ${cookie.value}  ${cookie.path}   ${cookie.domain}');
+                
+              },
             )
           ],
         ),
       ),
     );
+  }
+
+  Future<int> testInt() async {
+    int i = 0;
+    i++;
+    int j = await i;
+    return j;
+  }
+
+  void test(){
+    print("test print 1");
+    testInt().then((v) => print(v));
+    print("test print 2");
   }
 }
