@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:myapp2/animate/animatd_switcher.dart';
+import 'package:myapp2/animate/animate.dart';
+import 'package:myapp2/animate/basic_animate.dart';
+import 'package:myapp2/animate/hero.dart';
+import 'package:myapp2/animate/router_animate.dart';
+import 'package:myapp2/animate/stagger_animate.dart';
+import 'package:myapp2/animate/transition_animate.dart';
 import 'package:myapp2/base_component/base_component.dart';
 import 'package:myapp2/container/clip.dart';
 import 'package:myapp2/container/container.dart';
 import 'package:myapp2/container/decorated_box.dart';
+import 'package:myapp2/custom_widget/circle_progress.dart';
+import 'package:myapp2/custom_widget/combination_widget.dart';
+import 'package:myapp2/custom_widget/custom_paint.dart';
+import 'package:myapp2/custom_widget/custom_widget.dart';
+import 'package:myapp2/event/event.dart';
+import 'package:myapp2/event/gesture_recognize.dart';
+import 'package:myapp2/event/notification.dart';
+import 'package:myapp2/event/origin_point_event.dart';
 import 'package:myapp2/function/function.dart';
 import 'package:myapp2/function/inherited_widget.dart';
 import 'package:myapp2/function/will_pop_scope.dart';
@@ -90,7 +105,22 @@ class MyApp extends StatelessWidget {
         "provider": (context) => ProviderRoute(),
         "async_update": (context) => AsyncUpdateWidget(),
         "dialog": (context) => DialogWidget(),
-        "function": (context) => FunctionWidget()
+        "function": (context) => FunctionWidget(),
+        "event": (context) => EventWidget(),
+        "origin_point_event": (context) => OriginPointEventWidget(),
+        "gesture_recognize": (context) => GestureRecognizeWidget(),
+        "notification": (context) => NotificationWidget(),
+        "animated": (context) => AnimationWidget(),
+        "basic_animated": (context) => BasicAnimatedWidget(),
+        "router_animated": (context) => RouterAnimatedWidget(),
+        "hero": (context) => HeroAnimationRoute(),
+        "stagger_animate": (context) => StaggerRoute(),
+        "animated_switcher": (context) => AnimatedSwitcherCounterRoute(),
+        "transition_animate": (context) => TransitionAnimateWidget(),
+        "custom_widget": (context) => CustomWidget(),
+        "combination_widget": (context) => CombinationWidget(),
+        "custom_painter": (context) => CustomPaintRoute(),
+        "circle_progress": (context) => GradientCircularProgressRoute()
       },
       initialRoute: "home_page",
     );
@@ -118,8 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(
               child: Text("open new route"),
               onPressed: () async {
-                var result = await Navigator.push(context,
-                    MaterialPageRoute(builder: (context) {
+                var result = await Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return NewRoute(
                     text: "123123",
                   );
@@ -131,8 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text(
                 "open new route with name",
               ),
-              onPressed: () =>
-                  Navigator.pushNamed(context, "new_page", arguments: "hi"),
+              onPressed: () => Navigator.pushNamed(context, "new_page", arguments: "hi"),
             ),
             TextButton(
               child: Text("base component"),
@@ -153,6 +181,18 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(
               child: Text("function"),
               onPressed: () => Navigator.pushNamed(context, "function"),
+            ),
+            TextButton(
+              child: Text("event"),
+              onPressed: () => Navigator.pushNamed(context, "event"),
+            ),
+            TextButton(
+              child: Text("animated"),
+              onPressed: () => Navigator.pushNamed(context, "animated"),
+            ),
+            TextButton(
+              child: Text("custom widget"),
+              onPressed: () => Navigator.pushNamed(context, "custom_widget"),
             )
           ],
         ),

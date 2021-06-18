@@ -165,6 +165,19 @@ class DialogWidget extends StatelessWidget {
                     },
                   );
                 },
+              ),
+              TextButton(
+                child: Text("modal sheet"),
+                onPressed: () async {
+                  int type = await _showModalBottomSheet(context);
+                  print(type);
+                },
+              ),
+              TextButton(
+                child: Text("date picker"),
+                onPressed: () {
+                  _showDatePicker1(context);
+                },
               )
             ],
           ),
@@ -198,5 +211,27 @@ class DialogWidget extends StatelessWidget {
       scale: CurvedAnimation(parent: animation, curve: Curves.easeOut),
       child: child,
     );
+  }
+
+  Future<int> _showModalBottomSheet(BuildContext context) {
+    return showModalBottomSheet<int>(
+      context: context,
+      builder: (BuildContext context) {
+        return ListView.builder(
+          itemCount: 30,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Text("$index"),
+              onTap: () => Navigator.of(context).pop(index),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Future<DateTime> _showDatePicker1(BuildContext context) {
+    var date = DateTime.now();
+    return showDatePicker(context: context, initialDate: date, firstDate: date, lastDate: date.add(Duration(days: 30)));
   }
 }
